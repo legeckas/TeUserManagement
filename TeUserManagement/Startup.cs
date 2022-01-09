@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using TeUserManagement.Domain.Helpers;
 using TeUserManagement.Middlewares;
 using TeUserManagement.Service.Interfaces;
 using TeUserManagement.Service.Services;
@@ -23,6 +24,8 @@ namespace TeUserManagement
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
