@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using TeUserManagement.Middlewares;
+using TeUserManagement.Service.Interfaces;
+using TeUserManagement.Service.Services;
 
 namespace TeUserManagement
 {
@@ -26,6 +28,8 @@ namespace TeUserManagement
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TeUserManagement", Version = "v1" });
             });
+
+            services.AddTransient<IUserControllerAdapter, UserControllerAdapter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
