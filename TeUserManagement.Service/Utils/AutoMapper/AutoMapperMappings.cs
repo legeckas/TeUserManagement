@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using TeUserManagement.Domain.Dtos;
-using TeUserManagement.Domain.Models;
+using TeUserManagement.Domain.Dtos.User;
+using TeUserManagement.Domain.Models.User;
 
 namespace TeUserManagement.Service.Utils.AutoMapper
 {

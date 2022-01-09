@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using TeUserManagement.Domain.Helpers;
+using TeUserManagement.Helpers;
 using TeUserManagement.Middlewares;
 using TeUserManagement.Service.Interfaces;
 using TeUserManagement.Service.Services;
@@ -26,6 +28,11 @@ namespace TeUserManagement
         {
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
+
+            services.AddControllers(opt =>
+            {
+                opt.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer()));
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
