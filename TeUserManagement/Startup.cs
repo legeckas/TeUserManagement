@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using TeUserManagement.Middlewares;
 using TeUserManagement.Service.Interfaces;
 using TeUserManagement.Service.Services;
+using TeUserManagement.Service.Utils.AutoMapper;
 
 namespace TeUserManagement
 {
@@ -30,6 +31,7 @@ namespace TeUserManagement
             });
 
             services.AddTransient<IUserControllerAdapter, UserControllerAdapter>();
+            services.AddSingleton<IAutoMapperService, AutoMapperService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
