@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using TeUserManagement.DataAccess.Data;
+using TeUserManagement.DataAccess.DbAccess;
 using TeUserManagement.Domain.Helpers;
 using TeUserManagement.Helpers;
 using TeUserManagement.Middlewares;
@@ -42,6 +44,8 @@ namespace TeUserManagement
 
             services.AddTransient<IUserControllerAdapter, UserControllerAdapter>();
             services.AddSingleton<IAutoMapperService, AutoMapperService>();
+            services.AddSingleton<IMariaDbDataAccess, MariaDbDataAccess>();
+            services.AddSingleton<IUserData, UserData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

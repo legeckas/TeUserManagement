@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TeUserManagement.DataAccess\TeUserManagement.DataAccess.csproj" />
     <ProjectReference Include="..\TeUserManagement.Domain\TeUserManagement.Domain.csproj" />
     <ProjectReference Include="..\TeUserManagement.Service\TeUserManagement.Service.csproj" />
   </ItemGroup>

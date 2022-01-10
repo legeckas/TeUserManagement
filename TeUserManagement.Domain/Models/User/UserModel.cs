@@ -1,6 +1,14 @@
-﻿namespace TeUserManagement.Domain.Models.User
+﻿using System;
+
+namespace TeUserManagement.Domain.Models.User
 {
     public class UserModel
     {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int Age { get; set; }
+        public string City { get; set; }
+        public DateTime TimeCreated { get; set; }
     }
 }

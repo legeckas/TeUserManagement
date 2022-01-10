@@ -5,11 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="11.0.0" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="MySqlConnector" Version="2.1.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TeUserManagement.DataAccess\TeUserManagement.DataAccess.csproj" />
     <ProjectReference Include="..\TeUserManagement.Domain\TeUserManagement.Domain.csproj" />
   </ItemGroup>
 
