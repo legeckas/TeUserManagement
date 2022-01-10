@@ -36,6 +36,13 @@ namespace TeUserManagement.Controllers
             return OkNoContent<bool?>();
         }
 
+        [HttpPost("[action]")]
+        public async Task<GenericResponse<bool?>> AddUsersFromFile(AddUserFileDto addUserFileDto)
+        {
+            await _userControllerAdapter.AddUsersFromFile(addUserFileDto.UserFile);
+            return OkNoContent<bool?>();
+        }
+
         [HttpDelete("[action]/{id}")]
         public async Task<GenericResponse<bool?>> DeleteUser(int id)
         {

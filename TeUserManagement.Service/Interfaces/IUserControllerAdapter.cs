@@ -11,5 +11,6 @@ namespace TeUserManagement.Service.Interfaces
         Task AddUserAsync(AddUserDto addUserDto);
         Task DeleteUserAsync(int id);
         Task<GetUserDto> UpdateUser(int id, AddUserDto addUserDto);
+        Task AddUsersFromFile(string userFile);
     }
 }
