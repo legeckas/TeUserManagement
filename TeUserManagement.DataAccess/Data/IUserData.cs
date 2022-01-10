@@ -7,5 +7,6 @@ namespace TeUserManagement.DataAccess.Data
     public interface IUserData
     {
         Task<IEnumerable<UserModel>> GetUsers();
+        Task<UserModel> GetUser(int id);
     }
 }

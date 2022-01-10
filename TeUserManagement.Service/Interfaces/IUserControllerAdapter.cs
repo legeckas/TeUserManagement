@@ -7,5 +7,6 @@ namespace TeUserManagement.Service.Interfaces
     public interface IUserControllerAdapter
     {
         public Task<IEnumerable<UserDto>> GetUserListAsync();
+        public Task<UserDto> GetUserAsync(int id);
     }
 }

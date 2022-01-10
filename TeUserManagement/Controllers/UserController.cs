@@ -22,5 +22,11 @@ namespace TeUserManagement.Controllers
         {
             return Ok(await _userControllerAdapter.GetUserListAsync());
         }
+
+        [HttpGet("[action]/{id}")]
+        public async Task<GenericResponse<UserDto>> GetUser(int id)
+        {
+            return Ok(await _userControllerAdapter.GetUserAsync(id));
+        }
     }
 }

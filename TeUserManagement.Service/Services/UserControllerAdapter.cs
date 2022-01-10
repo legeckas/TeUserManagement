@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TeUserManagement.DataAccess.Data;
 using TeUserManagement.Domain.Dtos.User;
+using TeUserManagement.Domain.Helpers.Exceptions;
 using TeUserManagement.Domain.Models.User;
 using TeUserManagement.Service.Interfaces;
 using TeUserManagement.Service.Utils.AutoMapper;
@@ -22,7 +24,21 @@ namespace TeUserManagement.Service.Services
         public async Task<IEnumerable<UserDto>> GetUserListAsync()
         {
             var users = await _userData.GetUsers();
+
+            if (!users.Any())
+                throw new NotFoundException("No users were found.");
+
             return _autoMapper.MapObjects<IEnumerable<UserModel>, IEnumerable<UserDto>>(users);
+        }
+
+        public async Task<UserDto> GetUserAsync(int id)
+        {
+            var user = await _userData.GetUser(id);
+
+            if (user == null)
+                throw new NotFoundException("User not found.");
+
+            return _autoMapper.MapObjects<UserModel, UserDto>(user);
         }
     }
 }
