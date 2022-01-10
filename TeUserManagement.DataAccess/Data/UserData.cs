@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using TeUserManagement.DataAccess.DbAccess;
+using TeUserManagement.Domain.Dtos.User;
 using TeUserManagement.Domain.Models.User;
 
 namespace TeUserManagement.DataAccess.Data
@@ -20,5 +21,7 @@ namespace TeUserManagement.DataAccess.Data
             var results = await _db.LoadData<UserModel, dynamic>(@"spGetSingleUser", new { Id = id });
             return results.FirstOrDefault();
         }
+        public async Task AddUser(AddUserDto addUserDto) => await _db.SaveData(@"spAddUser", new { FirstNameP = addUserDto.FirstName, 
+            LastNameP = addUserDto.LastName, AgeP = addUserDto.Age, CityP = addUserDto.City});
     }
 }

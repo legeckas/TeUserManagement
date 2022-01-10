@@ -21,24 +21,26 @@ namespace TeUserManagement.Service.Services
             _autoMapper = autoMapper;
         }
 
-        public async Task<IEnumerable<UserDto>> GetUserListAsync()
+        public async Task<IEnumerable<GetUserDto>> GetUserListAsync()
         {
             var users = await _userData.GetUsers();
 
             if (!users.Any())
                 throw new NotFoundException("No users were found.");
 
-            return _autoMapper.MapObjects<IEnumerable<UserModel>, IEnumerable<UserDto>>(users);
+            return _autoMapper.MapObjects<IEnumerable<UserModel>, IEnumerable<GetUserDto>>(users);
         }
 
-        public async Task<UserDto> GetUserAsync(int id)
+        public async Task<GetUserDto> GetUserAsync(int id)
         {
             var user = await _userData.GetUser(id);
 
             if (user == null)
                 throw new NotFoundException("User not found.");
 
-            return _autoMapper.MapObjects<UserModel, UserDto>(user);
+            return _autoMapper.MapObjects<UserModel, GetUserDto>(user);
         }
+
+        public async Task AddUserAsync(AddUserDto addUserDto) => await _userData.AddUser(addUserDto);
     }
 }

@@ -10,7 +10,7 @@ namespace TeUserManagement.Service.Utils.AutoMapper
         {
             return new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<UserModel, UserDto>();
+                cfg.CreateMap<UserModel, GetUserDto>();
             });
         }
     }

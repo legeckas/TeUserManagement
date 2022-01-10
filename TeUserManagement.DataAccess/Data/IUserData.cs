@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using TeUserManagement.Domain.Dtos.User;
 using TeUserManagement.Domain.Models.User;
 
 namespace TeUserManagement.DataAccess.Data
@@ -8,5 +9,6 @@ namespace TeUserManagement.DataAccess.Data
     {
         Task<IEnumerable<UserModel>> GetUsers();
         Task<UserModel> GetUser(int id);
+        Task AddUser(AddUserDto addUserDto);
     }
 }

@@ -18,15 +18,22 @@ namespace TeUserManagement.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<GenericResponse<IEnumerable<UserDto>>> GetUserList()
+        public async Task<GenericResponse<IEnumerable<GetUserDto>>> GetUserList()
         {
             return Ok(await _userControllerAdapter.GetUserListAsync());
         }
 
         [HttpGet("[action]/{id}")]
-        public async Task<GenericResponse<UserDto>> GetUser(int id)
+        public async Task<GenericResponse<GetUserDto>> GetUser(int id)
         {
             return Ok(await _userControllerAdapter.GetUserAsync(id));
+        }
+
+        [HttpPost("[action]")]
+        public async Task<GenericResponse<bool?>> AddUser(AddUserDto addUserDto)
+        {
+            await _userControllerAdapter.AddUserAsync(addUserDto);
+            return OkNoContent<bool?>();
         }
     }
 }

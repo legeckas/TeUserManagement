@@ -22,6 +22,17 @@ namespace TeUserManagement.Controllers
             };
         }
 
+        [NonAction]
+        protected GenericResponse<TModel?> OkNoContent<TModel>(string message = null!)
+        {
+            return new GenericResponse<TModel?>
+            {
+                Content = default,
+                StatusCode = StatusCodes.Status204NoContent,
+                Message = message
+            };
+        }
+
         #endregion
     }
 }
