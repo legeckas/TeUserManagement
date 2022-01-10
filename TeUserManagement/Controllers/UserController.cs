@@ -35,5 +35,18 @@ namespace TeUserManagement.Controllers
             await _userControllerAdapter.AddUserAsync(addUserDto);
             return OkNoContent<bool?>();
         }
+
+        [HttpDelete("[action]/{id}")]
+        public async Task<GenericResponse<bool?>> DeleteUser(int id)
+        {
+            await _userControllerAdapter.DeleteUserAsync(id);
+            return OkNoContent<bool?>();
+        }
+
+        [HttpPut("[action]/{id}")]
+        public async Task<GenericResponse<GetUserDto>> UpdateUser(int id, AddUserDto addUserDto)
+        {
+            return Ok(await _userControllerAdapter.UpdateUser(id, addUserDto));
+        }
     }
 }

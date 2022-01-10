@@ -23,5 +23,8 @@ namespace TeUserManagement.DataAccess.Data
         }
         public async Task AddUser(AddUserDto addUserDto) => await _db.SaveData(@"spAddUser", new { FirstNameP = addUserDto.FirstName, 
             LastNameP = addUserDto.LastName, AgeP = addUserDto.Age, CityP = addUserDto.City});
+        public async Task DeleteUser(int id) => await _db.SaveData(@"spDeleteUser", new { IdP = id });
+        public async Task UpdateUser(int id, AddUserDto addUserDto) => await _db.SaveData(@"spUpdateUser", new { IdP = id, 
+            FirstNameP = addUserDto.FirstName, LastNameP = addUserDto.LastName, AgeP = addUserDto.Age, CityP = addUserDto.City });
     }
 }

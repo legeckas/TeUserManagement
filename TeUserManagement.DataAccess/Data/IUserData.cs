@@ -10,5 +10,7 @@ namespace TeUserManagement.DataAccess.Data
         Task<IEnumerable<UserModel>> GetUsers();
         Task<UserModel> GetUser(int id);
         Task AddUser(AddUserDto addUserDto);
+        Task DeleteUser(int id);
+        Task UpdateUser(int id, AddUserDto addUserDto);
     }
 }

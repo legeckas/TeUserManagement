@@ -42,5 +42,14 @@ namespace TeUserManagement.Service.Services
         }
 
         public async Task AddUserAsync(AddUserDto addUserDto) => await _userData.AddUser(addUserDto);
+
+        public async Task DeleteUserAsync(int id) => await _userData.DeleteUser(id);
+
+        public async Task<GetUserDto> UpdateUser(int id, AddUserDto addUserDto)
+        {
+            await _userData.UpdateUser(id, addUserDto);
+            var user = await _userData.GetUser(id);
+            return _autoMapper.MapObjects<UserModel, GetUserDto>(user);
+        }
     }
 }

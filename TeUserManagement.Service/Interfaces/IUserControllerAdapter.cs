@@ -6,8 +6,10 @@ namespace TeUserManagement.Service.Interfaces
 {
     public interface IUserControllerAdapter
     {
-        public Task<IEnumerable<GetUserDto>> GetUserListAsync();
-        public Task<GetUserDto> GetUserAsync(int id);
-        public Task AddUserAsync(AddUserDto addUserDto);
+        Task<IEnumerable<GetUserDto>> GetUserListAsync();
+        Task<GetUserDto> GetUserAsync(int id);
+        Task AddUserAsync(AddUserDto addUserDto);
+        Task DeleteUserAsync(int id);
+        Task<GetUserDto> UpdateUser(int id, AddUserDto addUserDto);
     }
 }
